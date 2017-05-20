@@ -16,4 +16,5 @@ int main(int argc,char *argv[])
 	}
 	printf("file_id = [%s]\n",file_id);
 	
+	return 0;
 }

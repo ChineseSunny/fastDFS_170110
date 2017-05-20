@@ -1,5 +1,6 @@
-#ifndef __FDFS_API_H_
-#define __FDFS_API_H_
+
+
+#pragma once
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,7 +17,7 @@
 #define FILE_ID_LEN (128)
 
 int myupload_byexec(char *filename,char *file_id);
+
 int fdfs_upload_by_filename(const char *filename, char *file_id);
 
-#endif
 

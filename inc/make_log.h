@@ -1,5 +1,4 @@
-#ifndef  _MAKE_LOG_H_
-#define  _MAKE_LOG_H
+#pragma once
 #include "pthread.h"
 
 int out_put_file(char *path, char *buf);
@@ -17,6 +16,6 @@ int dumpmsg_to_file(char *module_name, char *proc_name, const char *filename,
 
 extern pthread_mutex_t ca_log_lock;
 
-#endif
+
 
 

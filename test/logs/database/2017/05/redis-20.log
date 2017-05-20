@@ -1,0 +1,51 @@
+===20170520-052036,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170520-052036,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170520-052201,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170520-052201,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170520-052425,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170520-052425,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170520-115325,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170520-115325,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170520-123519,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170520-123519,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170520-123519,rop_get_string[1085]=== [-][GMS_REDIS]set: key,Error:n
+===20170520-123610,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170520-123610,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170520-123802,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170520-123802,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170520-124054,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170520-124054,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170520-124337,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170520-124337,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170520-134319,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170520-134319,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170520-134533,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170520-134533,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170520-134753,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170520-134912,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170520-135143,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
