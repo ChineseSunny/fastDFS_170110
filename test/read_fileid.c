@@ -31,29 +31,17 @@ int main()
 	
 	RVALUES file_id_arr = NULL;
 	
-	//连接redis tcp数据库
-	conn = rop_connectdb_nopwd("127.0.0.1","6379");
-
-	printf("************\n");
 	
-	if (conn->err) {
-		
-		printf(" %s \n",conn->errstr);
-		//LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "[-][GMS_REDIS]Connect %s:%d Error:%s\n", ip_str, port, conn->errstr);	
-		redisFree(conn);
-		conn = NULL;
-		goto END;
-	}
+	//连接redis tcp数据库
+	conn = rop_connectdb_nopwd("127.0.0.1", "6379");
 	
 	if(NULL == conn)
 	{
-		printf("3333333");
+	
 		LOG(ROP_MODULE, ROP_PROC, "conn db error");
 		ret = -1;
 		goto END;
 	}
-	
-	printf("888888888888888");
 	
 	//获取链表长度
 	count = rop_list_len(conn,"FILE_INFO_LIST");
@@ -67,7 +55,6 @@ int main()
 	
 	file_id_arr = malloc(count * VALUES_ID_SIZE);
 	
-	printf("=========111======");
 	
 	ret = rop_range_list(conn, "FILE_INFO_LIST", 0,count, file_id_arr, &count);
 	
@@ -79,9 +66,7 @@ int main()
 	}
 
 	int i = 0;
-	
-	printf("=========222======");
-	
+		
 	for(i =0;i< count;++i)
 	{
 		printf("=========333======");
@@ -93,12 +78,9 @@ int main()
 		
 		printf("file_id : %s\n",file_id_arr[i]);
 		
-		printf("=========444======");
-		
 		rop_hget_string(conn,FILEID_NAME_HASH, file_id_arr[i],name);
 		printf("name : %s\n",name);
 		
-		printf("=========555======");
 		
 		rop_hget_string(conn,FILEID_USER_HASH, file_id_arr[i],user);
 		printf("user : %s\n",user);
@@ -112,10 +94,10 @@ int main()
 	}
 
 END:
-	printf("=========777======");
+	//printf("=========777======");
 	if (conn != NULL) {
         rop_disconnect(conn);
     }
-    printf("=========666======");
+    //printf("=========666======");
 	return ret;
 }

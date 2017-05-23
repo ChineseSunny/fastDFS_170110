@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 
     redisContext *conn = NULL;
 
-    printf("11111111111\n");
+
     conn = rop_connectdb_nopwd("127.0.0.1", "6379");
     
     if (conn == NULL) {
@@ -33,11 +33,10 @@ int main(int argc, char *argv[])
         retn = -1;
         goto END;
     }
-		printf("----------2-------------\n");
 		
     count = rop_list_len(conn, FILE_INFO_LIST);
     
-    printf("----------3-------------\n");
+  
     
     if (count < 0) {
         printf("list len error\n");
@@ -54,7 +53,6 @@ int main(int argc, char *argv[])
         printf("list range error\n");
         goto END;
     }
-printf("----------4-------------\n");
 
     for (i = 0;i < count ; i++) {
         char name[VALUES_ID_SIZE] ={0};

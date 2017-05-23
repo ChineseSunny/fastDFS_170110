@@ -1182,6 +1182,7 @@ END:
  *      succ list_len  fail -1
  */
 /* -------------------------------------------*/
+
 int rop_list_len(redisContext *conn, char *key)
 {
 	int retn = 0;
@@ -1189,7 +1190,7 @@ int rop_list_len(redisContext *conn, char *key)
 	
 	redisReply *reply = NULL;
 	
-	reply = redisCommand(conn, "llen %s %s",key);
+	reply = redisCommand(conn, "llen  %s",key);
 	
 	if (reply == NULL) {
 		LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "[-][GMS_REDIS]llen : %s,Error:%sn",key,conn->errstr);
@@ -1200,3 +1201,21 @@ int rop_list_len(redisContext *conn, char *key)
 	freeReplyObject(reply);
 	return retn;
 }
+/*
+int rop_list_len(redisContext *conn, char *key)
+{
+    int retn = 0;
+    redisReply *reply = NULL;
+
+
+    reply = redisCommand(conn, "LLEN %s ", key);
+    if (reply != NULL) {
+        LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "[-][GMS_REDIS]LLEN %s  error!%s\n", key, conn->errstr);
+        retn = -1;
+    }
+
+    retn = reply->integer;
+
+    freeReplyObject(reply);
+    return retn;
+}*/
