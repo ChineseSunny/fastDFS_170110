@@ -1,0 +1,84 @@
+===20170522-115330,rop_connectdb_nopwd[363]=== [-][GMS_REDIS]Connect 127.0.0.1:6379 Error:Connection refused
+
+===20170522-122259,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-161932,rop_connectdb_nopwd[363]=== [-][GMS_REDIS]Connect 127.0.0.1:6379 Error:Connection refused
+
+===20170522-162037,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-163711,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-171352,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-172014,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-173542,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-173845,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-183732,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-183732,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170522-183850,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-184135,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-184344,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-184543,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-184635,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-184710,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-184750,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-185154,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-185228,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-185357,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-185516,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-185916,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-190036,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-190543,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-190642,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-190712,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-191038,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-191159,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 192.168.202.136:6379 SUCCESS!
+
+===20170522-191238,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 192.168.202.136:6379 SUCCESS!
+
+===20170522-191355,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 192.168.202.136:6379 SUCCESS!
+
+===20170522-191505,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 192.168.202.136:6379 SUCCESS!
+
+===20170522-191644,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-191655,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170522-191703,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 192.168.202.136:6379 SUCCESS!
+
+===20170522-192321,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 192.168.202.136:6379 SUCCESS!
+
+===20170522-192428,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 192.168.202.136:6379 SUCCESS!
+
+===20170522-192528,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 192.168.202.136:6379 SUCCESS!
+
+===20170522-192609,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 192.168.202.136:6379 SUCCESS!
+
+===20170522-192811,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 192.168.202.136:6379 SUCCESS!
+
+===20170522-192924,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 192.168.202.136:6379 SUCCESS!
+
+===20170522-192958,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+

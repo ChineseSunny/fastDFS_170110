@@ -10,7 +10,6 @@
 
 #include "fdfs_api.h"
 
-
 int myupload_byexec(char *filename,char *file_id)
 {
 	int pipefd[2];
@@ -62,6 +61,8 @@ int myupload_byexec(char *filename,char *file_id)
 	
 }
 
+
+/*
 int fdfs_upload_by_filename(const char *filename, char *file_id)
 {
 	const char *local_filename;
@@ -71,6 +72,7 @@ int fdfs_upload_by_filename(const char *filename, char *file_id)
 	ConnectionInfo *pTrackerServer;
 	int result;
 	int store_path_index;
+
 	ConnectionInfo storageServer;
 
 	log_init();
@@ -129,4 +131,4 @@ int fdfs_upload_by_filename(const char *filename, char *file_id)
 	fdfs_client_destroy();
 
 	return result;
-}
+}*/

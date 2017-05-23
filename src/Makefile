@@ -1,6 +1,6 @@
 
 CC=gcc
-CPPFLAGS= -I./inc -I/usr/include/fastdfs -I/usr/include/fastcommon 
+CPPFLAGS= -I../inc -I/usr/include/fastdfs -I/usr/include/fastcommon 
 CFLAGS=-Wall 
 LIBS= -lfdfsclient -lfastcommon
 

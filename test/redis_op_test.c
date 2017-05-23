@@ -34,7 +34,8 @@ int main()
 	{
 		LOG(ROP_MODULE,	ROP_PROC,"lpush %s err",key);
 		goto END;
-	}*/
+	}
+	*/
 	
 	
 	//set封装
@@ -45,7 +46,6 @@ int main()
 		goto END;
 	}
 	printf("set sun suc\n");
-	
 	
 	//get封装
 	ret = rop_get_string(conn,"sun",value);
@@ -78,7 +78,12 @@ int main()
 	}
 	printf("hget value suc:%s\n",value);
 	
-	
+		if(conn !=NULL)
+		{
+			//断开链接
+    	redisFree(conn);
+		}
+		
 END:
 	//垃圾回收
 	return ret;

@@ -423,4 +423,4 @@ int rop_hset_sting(redisContext *conn, char *field,char* key, char* value);
 
 int rop_hget_string(redisContext *conn, char *field,char* key,char *value);
 
-
+int rop_list_len(redisContext *conn, char *key);

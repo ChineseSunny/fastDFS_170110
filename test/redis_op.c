@@ -1110,16 +1110,16 @@ END:
  *			-1			fail
  */
 /* -------------------------------------------*/
-int rop_hset_sting(redisContext *conn, char *field,char* key, char* value)
+int rop_hset_sting(redisContext *conn,char* key,char *field,char* value)
 {
 	int retn = 0;	
 
 	redisReply *reply = NULL;
 
-	reply = redisCommand(conn, "hset %s %s %s", field,key, value);
+	reply = redisCommand(conn, "hset %s %s %s", key,field, value);
 	
 	if (reply == NULL) {
-		LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "[-][GMS_REDIS]hset: %s,key:%s ,value: %s Error:%sn",field,key, value,conn->errstr);
+		LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "[-][GMS_REDIS]hset:key:%s , fileid:%s,value: %s Error:%sn",key,field, value,conn->errstr);
 		retn = -1;
 		goto END;
 	}
@@ -1144,24 +1144,59 @@ END:
  *			-1			fail
  */
 /* -------------------------------------------*/
-int rop_hget_string(redisContext *conn, char *field,char* key,char*value)
+int rop_hget_string(redisContext *conn,char* key, char *field,char*value)
 {
 	int retn = 0;	
 
 	redisReply *reply = NULL;
 	
-	reply = redisCommand(conn, "hget %s %s",field,key);
+	reply = redisCommand(conn, "hget %s %s",key,field);
 	
 	if (reply == NULL) {
-		LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "[-][GMS_REDIS]get: %s %s,Error:%sn",field, key,conn->errstr);
+		LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "[-][GMS_REDIS]get: %s %s,Error:%sn",key,field, conn->errstr);
 		retn = -1;
 		goto END;
 	}
-
+	
+	int len = reply->len > VALUES_ID_SIZE? VALUES_ID_SIZE:reply->len ; 
+		
 	strncpy(value,reply->str,VALUES_ID_SIZE);
+	
+	value[len] = '\0';
 	
 END:
 	freeReplyObject(reply);
 	
+	return retn;
+}
+
+
+/* -------------------------------------------*/
+/**
+ * @brief  rop_list_len 
+ *
+ * @param conn
+ * @param key
+ *
+ * @returns   
+ *      succ list_len  fail -1
+ */
+/* -------------------------------------------*/
+int rop_list_len(redisContext *conn, char *key)
+{
+	int retn = 0;
+	int count  = 0;
+	
+	redisReply *reply = NULL;
+	
+	reply = redisCommand(conn, "llen %s %s",key);
+	
+	if (reply == NULL) {
+		LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "[-][GMS_REDIS]llen : %s,Error:%sn",key,conn->errstr);
+		retn = -1;
+	}
+	
+	retn = reply->integer;
+	freeReplyObject(reply);
 	return retn;
 }

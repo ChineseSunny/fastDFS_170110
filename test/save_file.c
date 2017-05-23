@@ -136,9 +136,6 @@ int main(int argc,char *argv[])
 	printf("********values:%s\n",values);*/
 	
 END:
-	if (conn != NULL) {
-        rop_disconnect(conn);
-    }
 	return ret;	
 }
 

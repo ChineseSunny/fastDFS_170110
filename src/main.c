@@ -12,15 +12,15 @@ int main(int argc,char *argv[])
 	int ret = 0;
 	char file_id[128] = { 0 };
 	
-	ret = myupload_byexec("a.c",file_id);
+	ret = fdfs_upload_by_filename("a.c",file_id);
 	if(ret)
 	{
 		printf("myupload_byexec err\n");
 		return ret;
 	}
 	
-	LOG(FDFS_MAIN,FDFS_MAIN_PROC,"%s",file_id);
-	//printf("file_id = [%s]\n",file_id);
+	//LOG(FDFS_MAIN,FDFS_MAIN_PROC,"%s",file_id);
+	printf("file_id = [%s]\n",file_id);
 	
 	return 0;
 }

@@ -68,8 +68,7 @@ int main()
 	list_len = reply->integer ;
 	printf("lpush succ len = %d\n", list_len);
 	freeReplyObject(reply);
-	
-	int 
+	 
 	
 	return 0;	
 }
