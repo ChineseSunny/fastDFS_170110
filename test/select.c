@@ -59,27 +59,29 @@ int main(int argc, char *argv[])
         char user[VALUES_ID_SIZE] ={0};
         char time[VALUES_ID_SIZE] ={0};
         char pv[VALUES_ID_SIZE] ={0};
-
+				
+				//printf("********\n");
+				
         LOG(MODULE, PROC, "====================");
         LOG(MODULE, PROC, "file_id = [%s]", file_id_array[i]);
 
         rop_hget_string(conn, FILEID_NAME_HASH, file_id_array[i], name);
         //LOG(MODULE, PROC, "name = [%s]", name);
-        printf("%s\n",name);
+        printf("name %s\n",name);
 
 				rop_hget_string(conn, FILEID_USER_HASH, file_id_array[i], user);
         //LOG(MODULE, PROC, "user = [%s]", user);
-				printf("%s\n",user);
+				printf("user %s\n",user);
 
         rop_hget_string(conn, FILEID_TIME_HASH, file_id_array[i], time);
        // LOG(MODULE, PROC, "time = [%s]", time);
-				printf("%s\n",time);
+				printf("time %s\n",time);
 				
         
 
         rop_hget_string(conn, FILEID_PV_HASH, file_id_array[i], pv);
         
-        printf("%s\n",pv);
+        printf("pv %s\n",pv);
         //LOG(MODULE, PROC, "pv = [%s]", pv);
     }
 

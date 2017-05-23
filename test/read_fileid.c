@@ -69,7 +69,7 @@ int main()
 		
 	for(i =0;i< count;++i)
 	{
-		printf("=========333======");
+		//printf("=========333======");
 		
 		char name[VALUES_ID_SIZE] = { 0 };
 		char user[VALUES_ID_SIZE] = { 0 };

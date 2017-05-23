@@ -8,16 +8,16 @@
 
 extern char **environ;
 
-
-#define MODULE "cgi"
-#define PROC "upload"
+#define MAIN "main"
+#define PROC "proc"
 
 int main (int argc, char *argv[])
 {
 
-    while (FCGI_Accept() >= 0) {
+    while (FCGI_Accept() >= 0) 
+    {
 
-        //µ±Ç°ÇëÇóµÄpostÊı¾İµÄ³¤¶È
+        //å½“å‰è¯·æ±‚çš„postæ•°æ®çš„é•¿åº¦
         char *contentLength = getenv("CONTENT_LENGTH");
         int len;
 
@@ -25,7 +25,7 @@ int main (int argc, char *argv[])
                 "\r\n");
 
         if (contentLength != NULL) {
-            //ÓĞpostÊı¾İ
+            //æœ‰postæ•°æ®
             len = strtol(contentLength, NULL, 10);
         }
         else {
@@ -36,39 +36,69 @@ int main (int argc, char *argv[])
             printf("No data from standard input.<p>\n");
         }
         else {
-            //ÔÚ´¦ÀípostÊı¾İ
+            //åœ¨å¤„ç†postæ•°æ®
             int i, ch;
             char *buf = NULL;
             char *p ;
 
             buf = malloc(len);
+            
             if (buf == NULL) {
-                LOG(MODULE, PROC, "malloc buf error");
+                LOG(MAIN, PROC, "malloc buf error");
                 break;
             }
             memset(buf, 0, len);
             p = buf;
 
             printf("Standard input:<br>\n<pre>\n");
+          
             for (i = 0; i < len; i++) {
-                //¶ÁÒ»¸ö×Ö½Ú
+                //è¯»ä¸€ä¸ªå­—èŠ‚
                 if ((ch = getchar()) < 0) {
                     printf("Error: Not enough bytes received on standard input<p>\n");
                     break;
                 }
-                //»ØÏÔÒ»¸ö×Ö½Ú
+                //å›æ˜¾ä¸€ä¸ªå­—èŠ‚
                 //putchar(ch);
                 *p = ch;
                 p++;
             }
             printf("\n</pre><p>\n");
-
-            //´ËÊ±buf¾ÍÓ¦¸Ã´æ·ÅÈ«²¿µÄpostÊı¾İ
+            
+						char line[128] = { 0 };
+						
+            char filename[128] = { 0 };
+            
+            char *p1 = strstr(buf,"\r\n");
+            
+            LOG(MAIN,PROC, "strstr buf :%s",p1);
+            
+            char *p2 = strstr(p1,"filename=");  
+            
+            //p2 + 10; 
+                     
+            char *p3 = strstr(p2,"\"");
+            
+            LOG(MAIN,PROC, "strstr p3 :%s",p3);
+            
+						char *p4 = strstr(p3+1,"\"");
+            
+						LOG(MAIN,PROC, "p4 :%s",p4);
+						
+						LOG(MAIN,PROC, "word :%s",p4 - p3);
+            
+            //æ­¤æ—¶bufå°±åº”è¯¥å­˜æ”¾å…¨éƒ¨çš„postæ•°æ®
             FILE *fp = NULL;
             fp = fopen("post_data.txt", "w");
 
             fwrite(buf, 1, len,fp);
             fclose(fp);
+            
+            if(NULL!=buf)
+            {
+            	free(buf);
+            }
+            
         }
 
     } /* while */
