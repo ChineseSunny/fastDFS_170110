@@ -1,14 +1,12 @@
-/**
- * @file   redis_api.h
- * @brief  redis 封装接口
- */
+
 
 #pragma once
 
-#include "hiredis.h"
+
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include "hiredis.h"
 #include "make_log.h"
 
 

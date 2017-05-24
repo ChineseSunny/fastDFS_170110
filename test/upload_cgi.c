@@ -2,15 +2,23 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include "upload_file_read.h"
+
+#include "make_log.h"
+#include "util_cgi.h"
+
 
 #include "fcgi_stdio.h"
 #include "fcgi_config.h"
-#include "make_log.h"
-#include "util_cgi.h"
+
+
 extern char **environ;
 
 #define FCGI "fcgi"
 #define UPLOAD "upload"
+
+#define FDFS "FDFS"
+#define PROC "proc"
 
 int main (int argc, char *argv[])
 {
@@ -173,29 +181,38 @@ int main (int argc, char *argv[])
             close(fd);
             
             //===============> 将该文件存入fastDFS中,并得到文件的file_id <============
+						//redis数据库建表
+						ret = upload_file_by_name(filename);
 						
-						ret = myupload_byexec(filename,file_id);
 						if(ret)
 						{
-							printf("myupload_byexec err\n");
+							LOG(FCGI,UPLOAD, "wrong no content\n");
+              goto END;
 						}
-						
-						printf("ret:%d\n",ret);
-						
-						printf("file_id:%s\n",file_id);
-						 
-						 
-            //redis数据库建表
-
+						//printf("file_id:%s\n",file_id);
+			
+			
+			
 
             //将本地文件删除掉
-            unlink(filename);
+            //unlink(filename);
 
 
-            //================ > 得到文件所存放storage的host_name <=================
-
-
+            //================ > 得到文件所存放storage的host_name <================
             //fielid f 入redis
+            
+            
+            ret = upload_file_read();
+            if(ret)
+						{
+							LOG(FCGI,UPLOAD, "wrong no content\n");
+              goto END;
+						}
+						
+            	
+            
+            
+            
             printf("%s 文件上传成功", filename);
             
 END:
