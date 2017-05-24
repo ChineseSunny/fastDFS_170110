@@ -75,8 +75,7 @@ int upload_file_read()
 		rop_hget_string(conn,FILEID_PV_HASH, file_id_arr[i],pv);
 		//printf("pv : %s\n",pv);
 		LOG(ROP_MODULE, ROP_PROC,"pv : %s\n",pv);
-		
-		
+
 		
 	}
 

@@ -1,47 +1,31 @@
 
-// 根据feile_id 查询 redis 数据库信息
+#include "select_redis_file.h"
 
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <string.h>
-#include <errno.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <sys/wait.h>
-
-#include "redis_op.h"
-#include "make_log.h"
-
-#define ROP_MODULE "test"
-#define ROP_PROC "redis_op"
-
-#define FILE_INFO_LIST      "FILE_INFO_LIST"
-#define FILEID_NAME_HASH    "FILEID_NAME_HASH"
-#define FILEID_USER_HASH    "FILEID_USER_HASH"
-#define FILEID_TIME_HASH    "FILEID_TIME_HASH"
-#define FILEID_PV_HASH      "FILEID_PV_HASH"
-
-int main()
+int select_file_to_cjson(int fromID,int count,char **out_p)
 {
 	
 	int ret = 0;
-	int count = 0;
+	int file_num = 0;
 	
+	char *out = NULL;
 	//创建 redis 连接句柄
 	
 	redisContext* conn = NULL;
 	
 	RVALUES file_id_arr = NULL;
 	
+	//创建 cjson  root object
+	cJSON * root = cJSON_CreateObject();
+	
+	//创建 cjson array
+	cJSON * arr = cJSON_CreateArray();
 	
 	//连接redis tcp数据库
 	conn = rop_connectdb_nopwd("127.0.0.1", "6379");
 	
 	if(NULL == conn)
 	{
-	
 		LOG(ROP_MODULE, ROP_PROC, "conn db error");
 		ret = -1;
 		goto END;
@@ -60,7 +44,7 @@ int main()
 	file_id_arr = malloc(count * VALUES_ID_SIZE);
 	
 	
-	ret = rop_range_list(conn, "FILE_INFO_LIST", 0,count, file_id_arr, &count);
+	ret = rop_range_list(conn, "FILE_INFO_LIST", 0,count, file_id_arr, &file_num);
 	
 	if(ret)
 	{
@@ -73,29 +57,45 @@ int main()
 		
 	for(i =0;i< count;++i)
 	{
-		//printf("=========333======");
+		//创建 cjson 小 object
+		cJSON * item = cJSON_CreateObject();
 		
 		char name[VALUES_ID_SIZE] = { 0 };
 		char user[VALUES_ID_SIZE] = { 0 };
 		char time[VALUES_ID_SIZE] = { 0 };
 		char pv[VALUES_ID_SIZE] = { 0 };
 		
-		printf("file_id : %s\n",file_id_arr[i]);
+		//printf("file_id : %s\n",file_id_arr[i]);
+		//添加 id 和 value 到
+		cJSON_AddStringToObject(item,"id",file_id_arr[i]);
+		
 		
 		rop_hget_string(conn,FILEID_NAME_HASH, file_id_arr[i],name);
-		printf("name : %s\n",name);
+		//printf("name : %s\n",name);
+		cJSON_AddStringToObject(item,"title_m",name);
 		
 		
 		rop_hget_string(conn,FILEID_USER_HASH, file_id_arr[i],user);
-		printf("user : %s\n",user);
+		//printf("user : %s\n",user);
+		cJSON_AddStringToObject(item,"title_s",user);
 		
 		rop_hget_string(conn,FILEID_TIME_HASH, file_id_arr[i],time);
-		printf("time : %s\n",time);
+		//printf("time : %s\n",time);
+		cJSON_AddStringToObject(item,"descrip",time);
 		
 		rop_hget_string(conn,FILEID_PV_HASH, file_id_arr[i],pv);
-		printf("pv : %s\n",pv);
+		//printf("pv : %s\n",pv);
+		cJSON_AddStringToObject(item,"hot",pv);
 		
+		//cJSON_AddItemToArray(cJSON *array, cJSON *item);
+		//添加object ---> array
+		cJSON_AddItemToArray(arr,item);
 	}
+	
+	cJSON_AddStringToObject(root,"game",arr);
+	
+	out = cJSON_Print(root);
+	*out_p = out;
 
 END:
 	
@@ -103,5 +103,10 @@ END:
         rop_disconnect(conn);
     }
     
+  if(file_id_arr!=NULL)
+  {
+  	free(file_id_arr);
+  	file_id_arr = NULL;
+  }
 	return ret;
 }

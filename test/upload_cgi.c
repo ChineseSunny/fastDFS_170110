@@ -192,7 +192,6 @@ int main (int argc, char *argv[])
 						//printf("file_id:%s\n",file_id);
 			
 			
-			
 
             //将本地文件删除掉
             //unlink(filename);
@@ -202,12 +201,6 @@ int main (int argc, char *argv[])
             //fielid f 入redis
             
             
-            ret = upload_file_read();
-            if(ret)
-						{
-							LOG(FCGI,UPLOAD, "wrong no content\n");
-              goto END;
-						}
 						
             	
             

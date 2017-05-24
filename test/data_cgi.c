@@ -1,3 +1,5 @@
+
+
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -5,7 +7,9 @@
 
 #include "util_cgi.h"
 #include "make_log.h"
+#include "select_redis_file.h"
 
+//头文件里有重定向操作，放在hiredis之后
 #include "fcgi_stdio.h"
 #include "fcgi_config.h"
 
@@ -16,7 +20,10 @@
 
 int main ()
 {
+		int ret = 0;
 
+		char *out_p = NULL;
+		
     while (FCGI_Accept() >= 0) {
         char cmd[URI_CMD_LEN] = {0};
         char fromId[URI_CMD_LEN] = {0};
@@ -42,6 +49,8 @@ int main ()
             //query_parse_key_value(query_string, "user", user, NULL);
 
             //根据fromid 和count 查询FILE_USER_LIST
+						
+						ret = select_file_to_cjson(fromId,count,&out_p);
 
             //再根据得到的每个fileid  获取每个文件的属性
 
