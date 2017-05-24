@@ -65,6 +65,10 @@ int select_file_to_cjson(int fromID,int count,char **out_p)
 		char time[VALUES_ID_SIZE] = { 0 };
 		char pv[VALUES_ID_SIZE] = { 0 };
 		
+		char type[VALUES_ID_SIZE] = { 0 };
+		char url[VALUES_ID_SIZE] = { 0 };
+		char shar_status[VALUES_ID_SIZE] = { 0 };
+	
 		//printf("file_id : %s\n",file_id_arr[i]);
 		//Ìí¼Ó id ºÍ value µ½
 		cJSON_AddStringToObject(item,"id",file_id_arr[i]);
@@ -85,16 +89,44 @@ int select_file_to_cjson(int fromID,int count,char **out_p)
 		
 		rop_hget_string(conn,FILEID_PV_HASH, file_id_arr[i],pv);
 		//printf("pv : %s\n",pv);
-		cJSON_AddStringToObject(item,"hot",pv);
+		cJSON_AddNumberToObject(item,"pv",atoi(pv));
+		
+		 //kind (Ô¤Áô×Ö¶Î)
+     cJSON_AddNumberToObject(item, "kind", 0);
+
+     //picurl_m(Í¼Æ¬logourlµØÖ·)
+     char pic_url[VALUES_ID_SIZE] = {0};
+		//TYPE
+		rop_hget_string(conn,FILEID_TYPE_HASH, file_id_arr[i],type);
+		strcat(pic_url, "http://");
+    strcat(pic_url, "192.168.202.136");
+    strcat(pic_url, "/static/file_png/");
+    strcat(pic_url, type);
+    strcat(pic_url, ".png");
+		
+		cJSON_AddStringToObject(item,"picurl_m",pic_url);
+		
+		
+		rop_hget_string(conn,FILEID_URL_HASH, file_id_arr[i],url);
+		//printf("pv : %s\n",pv);
+		cJSON_AddStringToObject(item,"url",url);
+		
+		
+		rop_hget_string(conn,FILEID_SHARED_HASH, file_id_arr[i],shar_status);
+		//printf("pv : %s\n",pv);
+		cJSON_AddNumberToObject(item,"hot",atoi(shar_status));
+		
+		
 		
 		//cJSON_AddItemToArray(cJSON *array, cJSON *item);
 		//Ìí¼Óobject ---> array
 		cJSON_AddItemToArray(arr,item);
 	}
 	
-	cJSON_AddStringToObject(root,"game",arr);
+	cJSON_AddItemToObject(root,"games",arr);
 	
 	out = cJSON_Print(root);
+	
 	*out_p = out;
 
 END:

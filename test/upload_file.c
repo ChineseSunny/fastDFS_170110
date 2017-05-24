@@ -104,6 +104,7 @@ int upload_file_by_name(char *filename)
 	//int rop_hset_sting(redisContext *conn, char *field,char* key, char* value);
 	
 	ret = rop_hset_sting(conn,FILEID_TYPE_HASH,file_id,suffix);
+	LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "FILEID_TYPE_HASH:%sn",FILEID_TYPE_HASH,suffix);
 	
 	if(ret)
 	{
@@ -112,21 +113,39 @@ int upload_file_by_name(char *filename)
 		goto END;
 	}
 	
+/*#define FILEID_URL_HASH     "FILEID_URL_HASH"
+#define FILEID_SHARED_HASH     "FILEID_SHARED_HASH"*/
 
+		//拼接file_url
+	char file_url[256] = { 0 };
+	strcat(file_url,"http://");
+	strcat(file_url,"192.168.202.136");
+	strcat(file_url,"/");
+	strcat(file_url,file_id);
+
+	ret = rop_hset_sting(conn,FILEID_URL_HASH,file_id,file_url);
+	LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "FILEID_URL_HASH:%s\n",FILEID_URL_HASH,file_url);
+	
+	if(ret)
+	{
+		LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "[-][GMS_REDIS]hset:key:%s , fileid:%s,value: %s Error:%sn",FILEID_TYPE_HASH,file_id, file_url,conn->errstr);
+		ret = -1;
+		goto END;
+	}
+	
+
+	
+	ret = rop_hset_sting(conn,FILEID_SHARED_HASH,file_id,"0");
+	LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "FILEID_SHARED_HASH:%sn",FILEID_SHARED_HASH,"0");
+	
+	if(ret)
+	{
+		LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "[-][GMS_REDIS]hset:key:%s , fileid:%s,value: %s Error:%sn",FILEID_TYPE_HASH,file_id, "0",conn->errstr);
+		ret = -1;
+		goto END;
+	}
+	
 	
 END:
 	return ret;	
 }
-
-	/*rop_range_list 得到链表中的数据
-	  @param values    得到表中的value数据
-    @param get_num   得到结果value的个数
-    
-	ret = rop_range_list(conn,filekey, 0, -1,values ,&get_num);
-	if(ret)
-	{
-		LOG(ROP_MODULE,	ROP_PROC,"lpush %s err",filekey);
-		goto END;
-	}
-	printf("********filekey:%s\n",filekey);
-	printf("********values:%s\n",values);*/

@@ -50,13 +50,14 @@ int main ()
 
             //根据fromid 和count 查询FILE_USER_LIST
 						
-						ret = select_file_to_cjson(fromId,count,&out_p);
+						ret = select_file_to_cjson(atoi(fromId),atoi(count),&out_p);
 
             //再根据得到的每个fileid  获取每个文件的属性
 
             //根据每个属性 封装成一个json 字符串
             //将json字符串打印给前端
 
+#if 0
             //test
             char *json_str = malloc(4096);
 
@@ -65,9 +66,10 @@ int main ()
 
             fclose(fp);
 
+#endif
 
             //将jsonstr 打印给前端
-            printf("%s", json_str);
+            printf("%s", out_p);
 
         } 
 
