@@ -24,9 +24,11 @@ kill -9 `ps aux | grep "fcgi" | grep -v "grep" | awk '{print $2}'`
 kill -9 `ps aux | grep "echo_cgi" | grep -v "grep" | awk '{print $2}'`
 kill -9 `ps aux | grep "upload_cgi" | grep -v "grep" | awk '{print $2}'`
 kill -9 `ps aux | grep "data_cgi" | grep -v "grep" | awk '{print $2}'`
+kill -9 `ps aux | grep "reg_cgi" | grep -v "grep" | awk '{print $2}'`
 
 #启动demo_cgi
 spawn-fcgi -a 127.0.0.1 -p 8081 -f ./fcgi
 spawn-fcgi -a 127.0.0.1 -p 8082 -f ./echo_cgi
 spawn-fcgi -a 127.0.0.1 -p 8083 -f ./upload_cgi
 spawn-fcgi -a 127.0.0.1 -p 8084 -f ./data_cgi
+spawn-fcgi -a 127.0.0.1 -p 8085 -f ./reg_cgi

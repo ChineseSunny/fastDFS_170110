@@ -1,6 +1,8 @@
 
 
-// 根据feile_id 查询 redis 数据库信息  接口封装
+/* 根据feile_id 查询 redis 数据库信息  接口封装
+*		
+*/
 
 #pragma once
 
