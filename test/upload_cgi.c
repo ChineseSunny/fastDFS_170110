@@ -181,6 +181,7 @@ int main (int argc, char *argv[])
             close(fd);
             
             //===============> 将该文件存入fastDFS中,并得到文件的file_id <============
+					
 						//redis数据库建表
 						ret = upload_file_by_name(filename);
 						

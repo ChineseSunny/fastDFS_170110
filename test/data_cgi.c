@@ -48,7 +48,7 @@ int main ()
             //user
             //query_parse_key_value(query_string, "user", user, NULL);
 
-            //根据fromid 和count 查询FILE_USER_LIST
+            //根据fromid 和count 查询FILE_INFO_LIST
 						
 						ret = select_file_to_cjson(atoi(fromId),atoi(count),&out_p);
 

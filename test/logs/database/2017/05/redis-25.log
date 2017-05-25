@@ -1,0 +1,44 @@
+===20170525-154158,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170525-154158,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170525-154227,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170525-154227,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170525-154247,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170525-154247,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170525-154256,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170525-154256,upload_file_by_name[107]=== FILEID_TYPE_HASH:FILEID_TYPE_HASHn
+===20170525-154256,upload_file_by_name[127]=== FILEID_URL_HASH:FILEID_URL_HASH
+
+===20170525-154256,upload_file_by_name[139]=== FILEID_SHARED_HASH:FILEID_SHARED_HASHn
+===20170525-154311,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170525-154311,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170525-154322,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170525-154322,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170525-154336,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170525-154336,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170525-154342,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170525-154342,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+
+===20170525-154357,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170525-154357,upload_file_by_name[107]=== FILEID_TYPE_HASH:FILEID_TYPE_HASHn
+===20170525-154357,upload_file_by_name[127]=== FILEID_URL_HASH:FILEID_URL_HASH
+
+===20170525-154357,upload_file_by_name[139]=== FILEID_SHARED_HASH:FILEID_SHARED_HASHn
+===20170525-154408,rop_connectdb_nopwd[369]=== [+][GMS_REDIS]Connect 127.0.0.1:6379 SUCCESS!
+
+===20170525-154408,rop_disconnect[525]=== [+][GMS_REDIS]Disconnect SUCCESS!
+

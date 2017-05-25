@@ -18,6 +18,8 @@
 
 #define ROP_MODULE "test"
 #define ROP_PROC "redis_op"
+#define CJSON  "CJSON"
+
 
 #include "cJSON.h"
 

@@ -104,11 +104,11 @@ int upload_file_by_name(char *filename)
 	//int rop_hset_sting(redisContext *conn, char *field,char* key, char* value);
 	
 	ret = rop_hset_sting(conn,FILEID_TYPE_HASH,file_id,suffix);
-	LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "FILEID_TYPE_HASH:%sn",FILEID_TYPE_HASH,suffix);
+	LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "FILEID_TYPE_HASH:%s suc\n",FILEID_TYPE_HASH,suffix);
 	
 	if(ret)
 	{
-		LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "[-][GMS_REDIS]hset:key:%s , fileid:%s,value: %s Error:%sn",FILEID_TYPE_HASH,file_id, value,conn->errstr);
+		LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "[-][GMS_REDIS]hset:key:%s , fileid:%s,value: %s Error:%s\n",FILEID_TYPE_HASH,file_id, value,conn->errstr);
 		ret = -1;
 		goto END;
 	}
@@ -124,11 +124,11 @@ int upload_file_by_name(char *filename)
 	strcat(file_url,file_id);
 
 	ret = rop_hset_sting(conn,FILEID_URL_HASH,file_id,file_url);
-	LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "FILEID_URL_HASH:%s\n",FILEID_URL_HASH,file_url);
+	LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "FILEID_URL_HASH:%s suc\n",FILEID_URL_HASH,file_url);
 	
 	if(ret)
 	{
-		LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "[-][GMS_REDIS]hset:key:%s , fileid:%s,value: %s Error:%sn",FILEID_TYPE_HASH,file_id, file_url,conn->errstr);
+		LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "[-][GMS_REDIS]hset:key:%s , fileid:%s,value: %s Error:%s\n",FILEID_TYPE_HASH,file_id, file_url,conn->errstr);
 		ret = -1;
 		goto END;
 	}
@@ -136,11 +136,11 @@ int upload_file_by_name(char *filename)
 
 	
 	ret = rop_hset_sting(conn,FILEID_SHARED_HASH,file_id,"0");
-	LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "FILEID_SHARED_HASH:%sn",FILEID_SHARED_HASH,"0");
+	LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "FILEID_SHARED_HASH:%s suc\n",FILEID_SHARED_HASH,"0");
 	
 	if(ret)
 	{
-		LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "[-][GMS_REDIS]hset:key:%s , fileid:%s,value: %s Error:%sn",FILEID_TYPE_HASH,file_id, "0",conn->errstr);
+		LOG(REDIS_LOG_MODULE, REDIS_LOG_PROC, "[-][GMS_REDIS]hset:key:%s , fileid:%s,value: %s Error:%s\n",FILEID_TYPE_HASH,file_id, "0",conn->errstr);
 		ret = -1;
 		goto END;
 	}
